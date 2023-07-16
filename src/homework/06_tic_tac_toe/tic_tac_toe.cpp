@@ -42,9 +42,18 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::display_board() const
 {
-    for(long unsigned int i = 0; i < pegs.size(); i += 3)
+    if(pegs.size() > 9)
     {
+        for(long unsigned int i = 0; i < pegs.size(); i += 4)
+        {
+            cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"|"<<pegs[i+3]<<"\n";
+        }
+    }else
+    {
+        for(long unsigned int i = 0; i < pegs.size(); i += 3)
+        {
         cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+        }
     }
 }
 
@@ -71,7 +80,6 @@ void TicTacToe::clear_square()
 {
     used_pegs.clear();
 }
-
 
 //private
 void TicTacToe::set_winner()
@@ -131,6 +139,7 @@ bool TicTacToe::check_column_win()
             return true;
         }
     }
+
     return false;
 }
 
@@ -169,6 +178,6 @@ bool TicTacToe::check_diagonal_win()
     {
          return true;
     }
-    
+
     return false;
 }

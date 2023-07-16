@@ -62,20 +62,6 @@ string TicTacToe::get_winner()
     return winner;
 }
 
-bool TicTacToe::check_square(int position)
-{
-    for(long unsigned int i = 0; i < used_pegs.size(); i++)
-    {
-        if(position == used_pegs[i])
-        {
-            cout << "Already used this square" << "\n";
-            return false;
-        }
-    }
-    used_pegs.push_back(position);
-    return true;
-}
-
 void TicTacToe::clear_square()
 {
     used_pegs.clear();

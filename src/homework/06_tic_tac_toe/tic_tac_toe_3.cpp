@@ -85,8 +85,8 @@ bool TicTacToe3::check_diagonal_win()
     return false;
 }
 
-/*
-int enter_position(TicTacToe& game)
+
+int TicTacToe3::enter_position(TicTacToe& game)
 {
     int position;
     do
@@ -103,4 +103,18 @@ int enter_position(TicTacToe& game)
 	}while(!game.check_square(position));
 
     return position;
-}*/
+}
+
+bool TicTacToe3::check_square(int position)
+{
+    for(long unsigned int i = 0; i < used_pegs.size(); i++)
+    {
+        if(position == used_pegs[i])
+        {
+            cout << "Already used this square" << "\n";
+            return false;
+        }
+    }
+    used_pegs.push_back(position);
+    return true;
+}

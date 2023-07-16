@@ -7,6 +7,8 @@ class TicTacToe3 : public TicTacToe
 {
 public:
     TicTacToe3() : TicTacToe(3){}
+    int enter_position(TicTacToe& game) override;
+    bool check_square(int position) override;
 private:
     bool check_column_win() override;
     bool check_row_win() override;
